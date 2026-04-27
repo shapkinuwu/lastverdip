@@ -1,0 +1,27 @@
+создаем БД
+выгружаем БД на сервер
+создаем папку в которой будет venv и проект
+запускаем cmd, переходим cd/d в папку, где размещено venv
+.venv\scripts\activate
+pip list
+django-admin startproject ...
+cd/d ...
+python manage.py startapp app
+python manage.py runserver
+открыть папку в PyCharm
+
+в settings.py 
+пишем app
+'ENGINE': 'django.db.backends.mysql', 'NAME': 'demka25_orm_nn', 'USER':'root', 'PASSWORD': 'root', 'HOST': '127.0.0.1', 'PORT': '3306',
+
+открываем cmd пишем python manage.py inspectdb > app/models.py
+
+в models.py
+fk_user = models.IntegerField(blank=True, null=True)
+кавычки убираем fk_user = models.ForeignKey(User, models.CASCADE, db_column='fk_user')
+приимпортить User
+from django.contrib.auth.models import User
+
+открываем cmd пишем python manage.py makemigrations
+затем делаем команду python manage.py migrate
+когда миграции прошли заходим в бд и смотрим изменения с размером вселенной
